@@ -109,6 +109,7 @@ class PatientSearchForm extends Component {
   }
 }
 ```
+The Smart component will pass an onSubmit(query) function to its children as child.props.onSubmit. Use this to initiate queries in response to user actions, such as within search forms.
 
 ### Putting it all together
 ```javascript
