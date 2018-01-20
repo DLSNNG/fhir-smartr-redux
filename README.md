@@ -5,7 +5,7 @@
 [![Coveralls][coveralls-badge]][coveralls]
 
 A set of React components that help tie the SMART on FHIR js library to a Redux store.
-See example on plunker: [https://plnkr.co/edit/XM9K5w1Y3sKPTjwQR6kx](https://plnkr.co/edit/XM9K5w1Y3sKPTjwQR6kx?p=preview)
+See example on plunker: [https://plnkr.co/edit/OrbOuy9WcqXaSBckuStB](https://plnkr.co/edit/OrbOuy9WcqXaSBckuStB?p=preview)
 
 ## Installation
 ### Node
