@@ -30,7 +30,6 @@ npm install --save fhir-smartr-redux
 ## Usage
 ### Define a Resource component with React
 ```javascript
-
 class PatientResource extends Component {
   
   render() {
