@@ -30,7 +30,10 @@
   "author": "",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository" : {
+    "type" : "git", 
+    "url" : "https://github.com/DLSNNG/fhir-smartr-redux"
+  },
   "keywords": [
     "react-component"
   ]
