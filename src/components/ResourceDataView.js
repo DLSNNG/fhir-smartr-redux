@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ResourceDataViewer = ({ resource }) => {
+const ResourceDataView = ({ resource }) => {
   return <span>{JSON.stringify(resource)}</span>
 }
 
-ResourceDataViewer.propTypes = {
+ResourceDataView.propTypes = {
   resource: PropTypes.object
 }
 
-export default ResourceDataViewer
+export default ResourceDataView

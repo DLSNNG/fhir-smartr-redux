@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 import { Provider } from 'react-redux'
-import {SmartDevQuery, SmartDev, ResourceList, configureStore} from 'fhir-smartr-redux'
+import {SmartDevQuery, SmartDev, ResourceList, configureStore} from '../../src'
 
 // Init store
 const store = configureStore();

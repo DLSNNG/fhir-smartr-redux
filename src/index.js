@@ -7,7 +7,7 @@ import SmartDevQuery from './containers/SmartDevQuery'
 import DataViewer from './components/DataViewer'
 import Resource from './components/Resource'
 import ResourceList from './components/ResourceList'
-import ResourceDataViewer from './components/ResourceDataViewer'
+import ResourceDataView from './components/ResourceDataView'
 
 export {configureStore}
 export {Smart}
@@ -18,7 +18,7 @@ export {SmartDevQuery}
 export {Resource}
 export {ResourceList}
 export {DataViewer}
-export {ResourceDataViewer}
+export {ResourceDataView}
 
 export default {
     configureStore: configureStore,
@@ -30,5 +30,5 @@ export default {
     DataViewer: DataViewer,
     Resource: Resource,
     ResourceList: ResourceList,
-    ResourceDataViewer: ResourceDataViewer
+    ResourceDataView: ResourceDataView
 }
