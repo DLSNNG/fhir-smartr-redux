@@ -1,6 +1,8 @@
 # fhir-smartr-redux
 
-[![npm package][npm-badge](https://npmjs.org/package/fhir-smartr-redux)
+[![Travis][build-badge]][build]
+[![npm package][npm-badge]][npm]
+[![Coveralls][coveralls-badge]][coveralls]
 
 A set of React components that help tie the SMART on FHIR js library to a Redux store.
 
