@@ -1,6 +1,6 @@
 {
   "name": "fhir-smartr-redux",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "fhir-smartr-redux React component",
   "main": "lib/index.js",
   "module": "es/index.js",
