@@ -48,7 +48,7 @@ class PatientResource extends Component {
 }
 ```
 
-### Perform a query
+### Perform a Query
 ```javascript
   <SmartQuery namespace="arbitraryname" query={{ type: 'Patient', id:'099e7de7-c952-40e2-9b4e-0face78c9d80' }} />
 ```
