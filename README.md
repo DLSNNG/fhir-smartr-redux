@@ -1,4 +1,4 @@
-# fhir-smartr-redux [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DLSNNG/fhir-smartr/blob/master/LICENSE) [![npm version](https://badge.fury.io/js/fhir-smartr.svg)](https://badge.fury.io/js/fhir-smartr)
+# fhir-smartr-redux [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DLSNNG/fhir-smartr/blob/master/LICENSE) [![npm version](https://badge.fury.io/js/fhir-smartr-redux.svg)](https://badge.fury.io/js/fhir-smartr-redux)
 
 A set of React components that help tie the SMART on FHIR js library to a Redux store.
 
