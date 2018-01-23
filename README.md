@@ -1,4 +1,4 @@
-# fhir-smartr-redux
+# fhir-smartr-redux [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DLSNNG/fhir-smartr/blob/master/LICENSE) [![npm version](https://badge.fury.io/js/fhir-smartr.svg)](https://badge.fury.io/js/fhir-smartr)
 
 A set of React components that help tie the SMART on FHIR js library to a Redux store.
 
@@ -8,6 +8,10 @@ See example on plunker: [https://plnkr.co/edit/OrbOuy9WcqXaSBckuStB](https://pln
 ### Node
 ```
 npm install --save fhir-smartr-redux
+```
+Make sure to include a reference to the SMART on FHIR js library in your html so you have access to the API.
+```html
+<script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.1.8/dist/fhir-client.js"></script>
 ```
 
 ### In the Browser (UMD)
