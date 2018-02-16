@@ -9,8 +9,14 @@ const ResourceList = ({ query, isFetching, data, emptyMessage, children }) => {
   }
   // No results
   const response = data;
+  const total = ((response || {}).data || {}).total || false;
   const resources = ((response || {}).data || {}).entry;
-  if(!resources) { 
+  
+  if(!total) {
+    return false;
+  }
+  
+  if(total === 0) { 
     return <div className="resource-list-empty-message">{emptyMessage ? emptyMessage : "No items to display"}</div>
   }
   // Has results
