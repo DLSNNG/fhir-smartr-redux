@@ -5,7 +5,8 @@ const ResourceList = ({ query, isFetching, data, loadingComponent, emptyMessage,
   
   // Still searching
   if(isFetching) {
-    return loadingComponent ? loadingComponent : <div className="resource-list-loader">Loading...</div>
+    const LoadingComponent = loadingComponent;
+    return loadingComponent ? <LoadingComponent /> : <div className="resource-list-loader">Loading...</div>
   }
   // No results
   const response = data;
@@ -42,7 +43,7 @@ ResourceList.propTypes = {
   isFetching: PropTypes.bool,
   data: PropTypes.object,
   emptyMessage: PropTypes.string,
-  loadingComponent: PropTypes.object
+  loadingComponent: PropTypes.component
 }
 
 export default ResourceList
