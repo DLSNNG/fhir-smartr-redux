@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ResourceList = ({ query, isFetching, data, emptyMessage, children }) => {
+const ResourceList = ({ query, isFetching, data, loadingComponent, emptyMessage, children }) => {
   
   // Still searching
   if(isFetching) {
-    return <div className="resource-list-loader">Loading...</div>
+    return loadingComponent ? loadingComponent : <div className="resource-list-loader">Loading...</div>
   }
   // No results
   const response = data;
@@ -41,7 +41,8 @@ const ResourceList = ({ query, isFetching, data, emptyMessage, children }) => {
 ResourceList.propTypes = {
   isFetching: PropTypes.bool,
   data: PropTypes.object,
-  emptyMessage: PropTypes.string
+  emptyMessage: PropTypes.string,
+  loadingComponent: PropTypes.object
 }
 
 export default ResourceList
