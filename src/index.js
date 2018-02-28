@@ -1,6 +1,6 @@
 import configureStore from './configureStore'
 import Smart from './containers/Smart'
-import SmartAPI from './containers/SmartApi'
+import SmartAPI from './containers/SmartAPI'
 import SmartDev from './containers/SmartDev'
 import SmartData from './containers/SmartData'
 import SmartQuery from './containers/SmartQuery'
