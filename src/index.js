@@ -1,6 +1,6 @@
 import configureStore from './configureStore'
 import Smart from './containers/Smart'
-import SmartAPI from './containers/SmartAPI'
+import SmartMulti from './containers/SmartMulti'
 import SmartDev from './containers/SmartDev'
 import SmartData from './containers/SmartData'
 import SmartQuery from './containers/SmartQuery'
@@ -14,7 +14,7 @@ import ResourceDataView from './components/ResourceDataView'
 
 export {configureStore}
 export {Smart}
-export {SmartAPI}
+export {SmartMulti}
 export {SmartDev}
 export {SmartData}
 export {SmartQuery}
@@ -29,7 +29,7 @@ export {ResourceDataView}
 export default {
     configureStore: configureStore,
     Smart: Smart,
-    SmartAPI: SmartAPI,
+    SmartMulti: SmartMulti,
     SmartDev: SmartDev,
     SmartData: SmartData,
     SmartQuery: SmartQuery,
