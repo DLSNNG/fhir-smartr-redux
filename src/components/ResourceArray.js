@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ResourceArray = ({ query, isFetching, data, loadingComponent, emptyMessage, children }) => {
+const ResourceArray = ({ query, isFetching, data, loadingComponent, emptyComponent, children }) => {
   
   // Still searching
   if(isFetching) {
@@ -14,7 +14,8 @@ const ResourceArray = ({ query, isFetching, data, loadingComponent, emptyMessage
   const resources = ((response || {}).data || {}).entry;
   
   if(total === 0) { 
-    return <div className="resource-list-empty-message">{emptyMessage ? emptyMessage : "No items to display"}</div>
+    const EmptyComponent = emptyComponent;
+    return emptyComponent ? <EmptyComponent /> : <div className="resource-list-empty-message">No items to display</div>
   }
   
   if(!total) {
@@ -34,7 +35,7 @@ const ResourceArray = ({ query, isFetching, data, loadingComponent, emptyMessage
 ResourceArray.propTypes = {
   isFetching: PropTypes.bool,
   data: PropTypes.object,
-  emptyMessage: PropTypes.string,
+  emptyComponent: PropTypes.component,
   loadingComponent: PropTypes.component,
   mapFunction: PropTypes.func.isRequired
 }
