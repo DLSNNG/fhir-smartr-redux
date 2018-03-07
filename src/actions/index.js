@@ -31,7 +31,22 @@ export function fetchDynamic(url, params, namespace) {
   }
 }
 
-export const requestSmartQuery = (query, namespace) => {
+export const requestInitSmart = () => {
+  return {
+    type: 'REQUEST_INIT_SMART',
+    startedAt: Date.now(),
+  }
+}
+
+export const receiveInitSmart = (smart) => {
+  return {
+    type: 'RECEIVE_INIT_SMART',
+    smart: smart,
+    startedAt: Date.now(),
+  }
+}
+
+export const requestSmartQuery = (smart, query, namespace) => {
   return {
     type: 'REQUEST_SMART_QUERY',
     query,
@@ -40,7 +55,7 @@ export const requestSmartQuery = (query, namespace) => {
   }
 }
 
-export const receiveSmartQuery = (query, namespace, json) => {
+export const receiveSmartQuery = (smart, query, namespace, json) => {
   return {
     type: 'RECEIVE_SMART_QUERY',
     query,
@@ -50,21 +65,64 @@ export const receiveSmartQuery = (query, namespace, json) => {
   }
 }
 
-export function fetchSmartQuery(query, namespace) {
+export const requestSmartPatientQuery = (smart, query, namespace) => {
+  return {
+    type: 'REQUEST_SMART_PATIENT_QUERY',
+    query,
+    namespace,
+    startedAt: Date.now(),
+  }
+}
+
+export const receiveSmartPatientQuery = (smart, query, namespace, json) => {
+  return {
+    type: 'RECEIVE_SMART_PATIENT_QUERY',
+    query,
+    namespace,
+    json,
+    startedAt: Date.now(),
+  }
+}
+
+export function initSmart(query, namespace) {
   return dispatch => {
-    dispatch(requestSmartQuery(query, namespace))
+    dispatch(requestInitSmart())
     FHIR.oauth2.ready(function(smart) {
-      if(query.id) {
-        smart.api.read(query).done(json => {
-          dispatch(receiveSmartQuery(query, namespace, json))
-        })
-      }
-      else {
-        smart.api.search(query).done(json => {
-          dispatch(receiveSmartQuery(query, namespace, json))
-        })
-      }
+      dispatch(receiveInitSmart(smart))
     });
+  }
+}
+
+
+export function fetchSmartQuery(smart, query, namespace) {
+  return dispatch => {
+    dispatch(requestSmartQuery(smart, query, namespace))
+    if(query.id) {
+      smart.api.read(query).done(json => {
+        dispatch(receiveSmartQuery(smart, query, namespace, json))
+      })
+    }
+    else {
+      smart.api.search(query).done(json => {
+        dispatch(receiveSmartQuery(smart, query, namespace, json))
+      })
+    }
+  }
+}
+
+export function fetchSmartPatientQuery(smart, query, namespace) {
+  return dispatch => {
+    dispatch(requestSmartPatientQuery(smart, query, namespace))
+    if(query.id || query.type == "Patient") {
+      smart.patient.api.read(query).done(json => {
+        dispatch(receiveSmartQuery(smart, query, namespace, json))
+      })
+    }
+    else {
+      smart.patient.api.search(query).done(json => {
+        dispatch(receiveSmartPatientQuery(smart, query, namespace, json))
+      })
+    }
   }
 }
 

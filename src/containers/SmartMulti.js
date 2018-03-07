@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
-import SmartWrapper from '../components/SmartWrapper'
+import SmartMultiWrapper from '../components/SmartMultiWrapper'
 
 const mapStateToProps = (state, ownProps) => {
   console.log(state);
-  const namespaces = ownProps.namespaces;
+  const namespaces = ownProps.namespacesUsed;
   let smart = {};
+  console.log(namespaces);
   namespaces.forEach((namespace) => {
     smart[namespace] = {
       query: state.smart[namespace] ? state.smart[namespace].query : {},
@@ -12,11 +13,12 @@ const mapStateToProps = (state, ownProps) => {
       data: state.smart[namespace] ? state.smart[namespace].data : {}
     }
   })
-  return smart;
+  console.log(smart);
+  return { smart: smart };
 }
 
 const SmartMulti = connect(
   mapStateToProps
-)(SmartWrapper)
+)(SmartMultiWrapper)
 
 export default SmartMulti

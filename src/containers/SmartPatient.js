@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { initSmart, fetchSmartQuery } from '../actions'
+import { initSmart, fetchSmartPatientQuery } from '../actions'
 import SmartWrapper from '../components/SmartWrapper'
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,14 +18,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(initSmart())
     },
     onSubmit: (smart, query) => {
-      dispatch(fetchSmartQuery(smart, query, ownProps.namespace))
+      dispatch(fetchSmartPatientQuery(smart, query, ownProps.namespace))
     }
   }
 }
 
-const Smart = connect(
+const SmartPatient = connect(
   mapStateToProps,
   mapDispatchToProps
 )(SmartWrapper)
 
-export default Smart
+export default SmartPatient

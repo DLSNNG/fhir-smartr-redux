@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { initSmart, fetchSmartQuery } from '../actions'
+import { initSmart, fetchSmartPatientQuery } from '../actions'
 import SmartQueryWrapper from '../components/SmartQueryWrapper'
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,14 +15,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(initSmart())
     },
     onLoad: (smart) => {
-      dispatch(fetchSmartQuery(smart, ownProps.query, ownProps.namespace))
+      dispatch(fetchSmartPatientQuery(smart, ownProps.query, ownProps.namespace))
     }
   }
 }
 
-const SmartQuery = connect(
+const SmartPatientQuery = connect(
   mapStateToProps,
   mapDispatchToProps
 )(SmartQueryWrapper)
 
-export default SmartQuery
+export default SmartPatientQuery
