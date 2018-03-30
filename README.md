@@ -135,7 +135,7 @@ The Smart component will pass an onSubmit(query) function to its children as chi
                 return
               }
               let query = { type: 'Patient', query: { given: input.value.trim() } }
-              this.props.onSubmit(query)
+              this.props.onQuery(query)
             }}
           >
             <input
