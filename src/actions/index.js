@@ -1,4 +1,5 @@
 /*global fetch*/
+/*global Headers*/
 /*global FHIR*/
 
 export const requestDynamic = (url, params, namespace) => {
@@ -65,6 +66,26 @@ export const receiveSmartQuery = (smart, query, namespace, json) => {
   }
 }
 
+export const requestSmartCreate = (url, entry, namespace) => {
+  return {
+    type: 'REQUEST_SMART_CREATE',
+    url,
+    entry,
+    namespace,
+    startedAt: Date.now(),
+  }
+}
+
+export const receiveSmartCreate = (url, entry, namespace, json) => {
+  return {
+    type: 'RECEIVE_SMART_CREATE',
+    entry,
+    namespace,
+    json,
+    startedAt: Date.now(),
+  }
+}
+
 export const requestSmartPatientQuery = (smart, query, namespace) => {
   return {
     type: 'REQUEST_SMART_PATIENT_QUERY',
@@ -107,6 +128,25 @@ export function fetchSmartQuery(smart, query, namespace) {
         dispatch(receiveSmartQuery(smart, query, namespace, json))
       })
     }
+  }
+}
+
+export function fetchSmartCreate(smart, entry, namespace) {
+  const url = smart.server.serviceUrl + '/' + entry.resourceType
+  const token = smart.server.auth.token
+  const postBody = JSON.stringify(entry);
+  return dispatch => {
+    dispatch(requestSmartCreate(url, entry, namespace))
+    return fetch(url, {
+      method: 'post',
+      headers: new Headers({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      }),
+      body: postBody
+    })
+      .then(response => response.json())
+      .then(json => dispatch(receiveSmartCreate(url, entry, namespace, json)))
   }
 }
 

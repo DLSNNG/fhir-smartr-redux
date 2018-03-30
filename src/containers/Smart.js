@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { initSmart, fetchSmartQuery } from '../actions'
+import { initSmart, fetchSmartQuery, fetchSmartCreate } from '../actions'
 import SmartWrapper from '../components/SmartWrapper'
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,8 +17,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     initSmart: () => {
       dispatch(initSmart())
     },
-    onSubmit: (smart, query) => {
+    onQuery: (smart, query) => {
       dispatch(fetchSmartQuery(smart, query, ownProps.namespace))
+    },
+    onCreate: (smart, entry) => {
+      dispatch(fetchSmartCreate(smart, entry, ownProps.namespace))
     }
   }
 }

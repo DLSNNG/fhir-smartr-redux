@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SmartWrapper = ({ smart, initSmart, query, isFetching, data, onSubmit, children }) => {
+const SmartWrapper = ({ smart, initSmart, query, isFetching, data, onQuery, onCreate, children }) => {
   if(!(smart || {}).api && !(smart || {}).init) {
     initSmart()
   }
@@ -11,8 +11,11 @@ const SmartWrapper = ({ smart, initSmart, query, isFetching, data, onSubmit, chi
           query: query,
           isFetching: isFetching,
           data: data,
-          onSubmit: (query) => {
-            onSubmit(smart, query)
+          onQuery: (query) => {
+            onQuery(smart, query)
+          },
+          onCreate: (entry) => {
+            onCreate(smart, entry)
           }
         })
     })
