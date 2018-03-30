@@ -92,7 +92,7 @@ class PatientSearchForm extends Component {
               return
             }
             let query = { type: 'Patient', query: { given: input.value.trim() } }
-            this.props.onSubmit(query)
+            this.props.onQuery(query)
           }}
         >
           <input
@@ -109,7 +109,7 @@ class PatientSearchForm extends Component {
   }
 }
 ```
-The Smart component will pass an onSubmit(query) function to its children as child.props.onSubmit. Use this to initiate queries in response to user actions, such as within search forms.
+The Smart component will pass an onQuery(query) function to its children as child.props.onQuery. Use this to initiate queries in response to user actions, such as within search forms.
 
 ### Putting it all together
 ```javascript
