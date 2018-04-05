@@ -32,9 +32,10 @@ export function fetchDynamic(url, params, namespace) {
   }
 }
 
-export const requestInitSmart = () => {
+export const requestInitSmart = (client) => {
   return {
     type: 'REQUEST_INIT_SMART',
+    client: client,
     startedAt: Date.now(),
   }
 }
@@ -105,12 +106,18 @@ export const receiveSmartPatientQuery = (smart, query, namespace, json) => {
   }
 }
 
-export function initSmart(query, namespace) {
+export function initSmart(client) {
   return dispatch => {
-    dispatch(requestInitSmart())
-    FHIR.oauth2.ready(function(smart) {
+    dispatch(requestInitSmart(client))
+    if(client !== undefined) {
+      const smart = FHIR.client(client)
       dispatch(receiveInitSmart(smart))
-    });
+    }
+    else {
+      FHIR.oauth2.ready(function(smart) {
+        dispatch(receiveInitSmart(smart))
+      });
+    }
   }
 }
 

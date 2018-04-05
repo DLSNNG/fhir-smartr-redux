@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     initSmart: () => {
-      dispatch(initSmart())
+      dispatch(initSmart(ownProps.client))
     },
     onQuery: (smart, query) => {
       dispatch(fetchSmartQuery(smart, query, ownProps.namespace))
