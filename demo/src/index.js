@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 import { Provider } from 'react-redux'
-import {SmartDevQuery, SmartDev, ResourceList, configureStore} from '../../src'
+import {SmartQuery, Smart, ResourceList, configureStore} from '../../src'
 
 // Init store
 const store = configureStore();
@@ -23,12 +23,13 @@ class Demo extends Component {
   render() {
     return (
       <div className="demo">
-        <SmartDevQuery namespace="arbitrarynamespace" query={{ type: 'Patient' }} />
-        <SmartDev namespace="arbitrarynamespace">
+        <SmartQuery namespace="arbitrarynamespace" query={{ type: 'Patient' }} 
+          client={{ serviceUrl: 'https://sb-fhir-dstu2.smarthealthit.org/api/smartdstu2/open', patientId: 'SMART-1137192' }} />
+        <Smart namespace="arbitrarynamespace">
           <ResourceList emptyMessage="Sorry it doesnt look like there are any items to display">
             <PatientTeaserView />
           </ResourceList>
-        </SmartDev>
+        </Smart>
       </div>
     )
   }

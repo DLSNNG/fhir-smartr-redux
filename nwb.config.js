@@ -8,5 +8,14 @@ module.exports = {
         react: 'React'
       }
     }
+  },
+  devServer: {
+    compress: true,
+    public: 'smartrr-nathanrichardng.c9users.io'
+  },
+  webpack: {
+    html: {
+      template: 'demo/src/index.html'
+    }
   }
 }
